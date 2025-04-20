@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Åland Real-Time Forum</title>
+    <link rel="stylesheet" href="/static/css/styles.css" />
+    <link rel="stylesheet" href="/static/css/chat.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>Åland Forum</h1>
+      <div id="auth-box" class="auth-box">
+        <!-- Auth box content will be rendered by JS -->
+      </div>
+    </header>
+
+    <div class="main-container">
+      <div id="sidebar" class="categories">
+        <!-- Sidebar content will be rendered by JS -->
+      </div>
+
+      <div id="content" class="posts-feed">
+        <!-- Main content will be rendered by JS -->
+      </div>
+
+      <div id="chat-sidebar" class="chat-sidebar">
+        <!-- Chat sidebar will be filled by JS -->
+      </div>
+    </div>
+
+    <!-- Load modules in the correct order -->
+    <script src="/static/js/templates.js"></script>
+
+    <!-- Core app modules (order matters) -->
+    <script src="/static/js/app_core.js"></script>
+    <script src="/static/js/app_forms.js"></script>
+    <script src="/static/js/app_pages.js"></script>
+
+    <!-- Chat modules -->
+    <script src="/static/js/chat_connection.js"></script>
+    <script src="/static/js/chat_messages.js"></script>
+    <script src="/static/js/chat_ui.js"></script>
+  </body>
+</html>

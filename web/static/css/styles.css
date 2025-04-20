@@ -1,0 +1,669 @@
+/* General Styling */
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 80px;
+}
+
+body p {
+  font-size: 20px; /* Adjust the size as needed */
+}
+/* Header Styling */
+header {
+  background: url("../image/aland.jpg") center/cover;
+  height: 250px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+header h1 {
+  color: white;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* Auth Links Box */
+.auth-box {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 12px 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  backdrop-filter: blur(5px);
+}
+
+/* Style for the username display */
+.auth-box p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.auth-box strong {
+  color: #0077b6;
+  font-weight: 600;
+}
+
+/* Style for the links */
+.auth-box a {
+  color: #0077b6;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  background-color: transparent;
+}
+
+/* Special styling for Create Post link */
+.auth-box a[href="/createPost"] {
+  background-color: #0077b6;
+  color: white;
+}
+
+.auth-box a[href="/createPost"]:hover {
+  background-color: #005f7f;
+  transform: translateY(-1px);
+}
+
+/* Style for Logout link */
+.auth-box a[href="/logout"] {
+  color: #dc3545;
+}
+
+.auth-box a[href="/logout"]:hover {
+  background-color: #ffebee;
+  color: #dc3545;
+}
+
+/* Regular link hover states */
+.auth-box a:not([href="/createPost"]):not([href="/logout"]):hover {
+  background-color: #e3f2fd;
+}
+
+/* Main Layout */
+.main-container {
+  display: flex;
+  width: 85%;
+  margin: 20px auto;
+  gap: 20px;
+  min-height: calc(100vh - 300px); /* Adjust based on your header height */
+}
+
+/* Categories Sidebar */
+.categories {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  width: 250px;
+  height: fit-content;
+
+}
+
+.categories a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #0077b6;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.categories a:hover {
+  background-color: rgba(0, 119, 182, 0.1);
+  box-shadow: 0px 0px 5px rgba(0, 119, 182, 0.3);
+  transform: translateX(5px);
+}
+
+/* Posts Feed */
+.posts-feed {
+  flex-grow: 1;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  min-height: 100% !important; /* Minimum height calculation based on viewport */
+}
+
+.post {
+  background-color: #e3f2fd;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 25px; /* Increased margin between posts */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.post:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.post h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.6rem;
+}
+
+.post h2 a {
+  color: #0077b6;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.post h2 a:hover {
+  color: #005f7f;
+  text-decoration: underline;
+}
+
+.post p {
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+/* Post Meta */
+.post-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.post-meta .left {
+  display: flex;
+  gap: 10px;
+  color: #666;
+}
+
+.post-meta .right {
+  display: flex;
+  gap: 5px;
+}
+
+/* Like/Dislike Buttons */
+button[name="type"] {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 5px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+button[name="type"]:hover {
+  opacity: 0.7;
+  transform: scale(1.1);
+}
+
+/* Comments */
+.comment {
+  background-color: #f9f9f9;
+  border-left: 5px solid #4caf50;
+  padding: 20px 15px 20px 30px; /* Increased padding */
+  margin-bottom: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+.comment:hover {
+  background-color: #f1f1f1;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transform: translateX(5px);
+}
+
+.comment-author {
+  color: #0077b6;
+  margin-bottom: 5px;
+  font-size: 1rem;
+}
+
+.comment-content {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+/* Auth Forms */
+.auth-form {
+  max-width: 400px;
+  margin: 30px auto;
+  padding: 70px; /* Increased padding */
+  min-height: 400px; /* Minimum height for auth forms */
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.auth-form h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+  font-size: 2rem;
+}
+
+.auth-form label {
+  display: block;
+  margin-bottom: 10px;
+  color: #555;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.auth-form input {
+  width: 100%;
+  padding: 14px; /* Bigger input fields */
+  margin-bottom: 25px; /* More space between fields */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.auth-form input:focus {
+  outline: none;
+  border-color: #008cba;
+  box-shadow: 0 0 5px rgba(0, 140, 186, 0.3);
+}
+
+.auth-form button {
+  width: 100%;
+  padding: 14px; /* Taller button */
+  background: #008cba;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 25px;
+  margin-top: 10px;
+}
+
+.auth-form button:hover {
+  background: #005f7f;
+}
+
+.auth-form p {
+  text-align: center;
+  margin-top: 20px;
+  color: #666;
+}
+
+.auth-form p a {
+  color: #008cba;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.auth-form p a:hover {
+  text-decoration: underline;
+}
+
+.auth-form .error {
+  background-color: #ffebee;
+  color: #dc3545;
+  padding: 12px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Style for the select element in forms */
+.auth-form select {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 25px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: white;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1em;
+}
+
+.auth-form select:focus {
+  outline: none;
+  border-color: #008cba;
+  box-shadow: 0 0 5px rgba(0, 140, 186, 0.3);
+}
+
+.auth-form select option {
+  padding: 10px;
+}
+
+/* Error Container */
+.error-container {
+  text-align: center;
+  padding: 40px;
+}
+
+.error-container h1 {
+  color: #dc3545;
+  margin-bottom: 20px;
+}
+
+.error-container p {
+  color: #666;
+  margin-bottom: 30px;
+  font-size: 18px;
+}
+
+/* Category Button Container */
+.category-button {
+  margin: 20px 0;
+  text-align: center;
+}
+
+/* Back to Home Button */
+.back-to-home {
+  display: inline-block;
+  background-color: #008cba;
+  color: white !important;
+  padding: 12px 24px;
+  border: 2px solid #008cba;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.back-to-home:hover {
+  background-color: white;
+  color: #008cba !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+.back-to-home:link,
+.back-to-home:visited,
+.back-to-home:hover,
+.back-to-home:active {
+  text-decoration: none;
+}
+
+/* Form Container */
+.form-container {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 50px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  min-height: 500px; /* Minimum height */
+}
+
+.form-container input,
+.form-container textarea {
+  width: 100%;              
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#content {
+  min-height: 200px; 
+  resize: none;
+}
+
+.form-container textarea {
+  min-height: 200px; 
+
+}
+
+.form-container input:focus,
+.form-container textarea:focus {
+  outline: none;
+  border-color: #0077b6;
+  box-shadow: 0 0 5px rgba(0, 119, 182, 0.3);
+}
+
+.form-container button {
+  width: 100%;
+  padding: 14px;
+  background: #008cba;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form-container button:hover {
+  background: #005f7f;
+}
+
+/* Comment form improvements */
+#comment-form {
+  margin-top: 30px;
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+/* Loading indicator */
+.loading {
+  text-align: center;
+  padding: 30px;
+  font-size: 18px;
+  color: #555;
+}
+
+/* Like/dislike buttons */
+.like-button,
+.dislike-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.like-button:hover {
+  background-color: rgba(0, 128, 0, 0.1);
+}
+
+.dislike-button:hover {
+  background-color: rgba(255, 0, 0, 0.1);
+}
+
+/* Post actions */
+.post-actions {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+/* Login prompt */
+.login-prompt {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.login-prompt a {
+  color: #0077b6;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.login-prompt a:hover {
+  text-decoration: underline;
+}
+
+/* Error message */
+.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 15px;
+  border-radius: 4px;
+  margin: 20px 0;
+  border: 1px solid #f5c6cb;
+}
+
+/* Checkbox container */
+.checkbox-container {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping if needed */
+  gap: 15px; /* Space between each checkbox-label pair */
+  margin-bottom: 25px;
+}
+
+.checkbox-container label {
+  display: flex;
+  align-items: center; /* Align checkbox with text */
+  gap: 5px; /* Space between checkbox and text */
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.checkbox-container input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .main-container {
+    flex-direction: column;
+    align-items: center;
+    width: 95%;
+  }
+
+  .categories {
+    width: 100%;
+    text-align: center;
+  }
+
+  .auth-box {
+    position: relative;
+    top: auto;
+    right: auto;
+    margin: 10px auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: fit-content;
+  }
+
+  .auth-box p {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+
+  .back-to-home {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  .post-meta {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .post-meta .right {
+    justify-content: center;
+  }
+
+  .posts-feed {
+    min-height: calc(100vh - 400px);
+  }
+
+  .auth-form {
+    min-height: 350px;
+    width: 90%;
+    padding: 20px;
+  }
+}
+
+
+/* Update the main-container to adjust for the chat sidebar */
+.main-container {
+  width: calc(85% - 210px); /* Adjust width to account for chat sidebar */
+  margin-left: auto;
+  margin-right: 210px; /* Match the chat sidebar width */
+}
+
+/* Adjust media queries for responsive design */
+@media (max-width: 768px) {
+  .main-container {
+    width: 95%;
+    margin-right: auto;
+  }
+
+  .posts-feed {
+    margin-right: 0;
+  }
+
+  .chat-sidebar {
+    display: none; /* Hide chat sidebar on mobile by default */
+  }
+
+  /* Add a chat toggle button for mobile */
+  .chat-toggle {
+    display: block;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #0077b6;
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 24px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+  }
+
+  .chat-sidebar.active {
+    display: block;
+    width: 100%;
+    z-index: 1000;
+  }
+}
+
+.comment-box {
+  resize: none;
+  min-height: 100px;
+  width: 100%;
+  max-width: 100%;
+}
